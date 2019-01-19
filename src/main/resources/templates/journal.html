@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each="entry, status : ${journal}">
+    <li th:attr="class=${status.odd}?'timeline-inverted':''">
+        <div class="timeline-panel">
+            <div class="tl-heading">
+                <h4><span th:text="${entry.title}">제목</span></h4>
+                <span th:text="${entry.createdAsShort}">에 작성</span>
+            </div>
+        </div>
+        <div class="tl-body">
+            <p>
+                <span th:text="${entry.summary}">요약</span>
+            </p>
+        </div>
+    </li>
+</div>
+</body>
+</html>
