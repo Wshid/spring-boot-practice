@@ -1,9 +1,8 @@
 package com.wshid.sboot.springbootpractice.sbtController;
 
 import com.wshid.sboot.springbootpractice.sbtDO.ApiPageView;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Project:  spring-boot-practice
@@ -15,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class ApiController {
 
-    @RequestMapping("/pv")
+    @RequestMapping(value = "/pv", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
     public ApiPageView requestPv(
             @RequestParam(value = "sid", defaultValue="0") String sid,
             @RequestParam(value = "cid", defaultValue="0") String cid,
