@@ -33,7 +33,7 @@ public class StatController {
             @RequestParam(value = "t", defaultValue = "1547911407") String reqTimestamp
     ) {
         statBO.pvProcess(sid, cid, platform, desc1, desc2, reqTimestamp);
-        log.info("sid : {} {}", sid, "============");
+        //log.info("sid : {} {}", sid, "============");
         return "";
     }
 }
