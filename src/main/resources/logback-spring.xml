@@ -31,8 +31,28 @@
         </rollingPolicy>
     </appender>
 
+    <appender name="STAT_ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_ABSOLUTE_PATH}/stat-${byHour}.log</file>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS_ABSOLUTE_PATH}/stat.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>128MB</maxFileSize>
+                <!-- kb, mb, gb -->
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
     <logger name="com.wshid.sboot.springbootpractice.sbtController.StatController" level="INFO">
         <appender-ref ref="ROLLING" />
+    </logger>
+
+    <logger name="com.wshid.sboot.springbootpractice.sbtBO.StatBO" level="INFO">
+        <appender-ref ref="STAT_ROLLING" />
     </logger>
     <!--<logger name="com.wshid.sboot.springbootpractice.sbtController.JournalController" level="INFO">-->
         <!--<appender-ref ref="ROLLING" />-->

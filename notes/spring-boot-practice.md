@@ -55,3 +55,9 @@ app.setBannerMode(Mode.OFF) # 코드 상으로 배너 끄기
 - `java -jar target/spring-boot-practice-0.0.1-SNAPSHOT.jar`
     - 파라미터는 jar 파일 뒤에 연접하여 입력하면 된다.
 
+### application.yml
+- `.yml`파일로 설정하기
+- 들여쓰기로 설정한다.
+- 코드상에서 `@Value`로 값을 가져올 수 있다.
+    - `@Value("${data.value}")`
+    

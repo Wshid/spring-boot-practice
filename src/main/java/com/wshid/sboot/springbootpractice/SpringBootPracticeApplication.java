@@ -10,19 +10,25 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
-public class SpringBootPracticeApplication {
+public class SpringBootPracticeApplication extends SpringBootServletInitializer {
 
     @Bean
     InitializingBean saveData(JournalRepository repo) {
         return () -> {
             repo.save(new Journal("스프링 부트 입문", "오늘부터 부트 시작합니다", "09/01/2019"));
         };
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(SpringBootPracticeApplication.class);
     }
 
     public static void main(String[] args) {
