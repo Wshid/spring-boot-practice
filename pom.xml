@@ -132,21 +132,22 @@
         </resources>
 
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <!--<attachClasses>false</attachClasses>-->
                     <!--<webXml>target/web.xml</webXml>-->
-                    <webResources>
-                        <resource>
-                            <directory>${project.build.directory}/classes</directory>
-                        </resource>
-                    </webResources>
-
+                    <!--<webResources>-->
+                        <!--<resource>-->
+                            <!--<directory>${project.build.directory}/classes</directory>-->
+                        <!--</resource>-->
+                    <!--</webResources>-->
+                    <!--<webappDirectory>target/${env}/deploy</webappDirectory>-->
+                    <!--<archiveClasses>true</archiveClasses>-->
                     <!--<outputDirectory>target/deploy</outputDirectory>-->
                 </configuration>
             </plugin>
